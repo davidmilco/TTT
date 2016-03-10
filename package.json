@@ -1,15 +1,10 @@
 {
-  "name": "NoughtCross",
+  "name": "TTT",
   "version": "0.0.1",
   "description": "Let's Play Some Tic-Tac-Toe",
   "main": "server.js",
-  "scripts": {
-    "start": "nodemon ./server/server.js"
-  },
   "dependencies": {
-    "express": "^4.13.3",
-    "express-jwt": "^3.3.0",
-    "nodemon": "^1.8.1"
+    "express": "^4.13.4"
   },
   "engines": {
     "node": "5.2.x"
