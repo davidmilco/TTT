@@ -1,0 +1,40 @@
+body {
+  background-color: aquamarine;
+}
+
+.gameSquare {
+    position:relative;
+    background-color:black;
+    height: 0;
+    padding-bottom: 7%;
+}
+
+.topRow {
+    border-bottom-style: solid;
+    border-bottom-color: white;
+    border-bottom-width: 2px;
+}
+
+.secondRow {
+    border-bottom-style: solid;
+    border-bottom-color: white;
+    border-bottom-width: 2px;
+}
+
+.firstCol {
+    border-right-style: solid;
+    border-right-color: white;
+    border-right-width: 2px;
+}
+
+.secondCol {
+    border-right-style: solid;
+    border-right-color: white;
+    border-right-width: 2px;
+}
+
+.row {
+    padding-left: 15px;
+    margin-left: 0px;
+    margin-right: 0px;
+}

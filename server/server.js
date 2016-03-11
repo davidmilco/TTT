@@ -3,6 +3,8 @@ var http = require("http");
 var path = require('path');
 var app = express();
 
+app.use('/client', express.static(__dirname + '/../client'));
+
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/../client/index.html'));
 });
