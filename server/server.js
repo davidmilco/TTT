@@ -12,10 +12,55 @@ app.get('/', function (req, res) {
 });
 
 app.post('/api/winConditions', function (req, res) {
-    console.log(req.body);
-    res.status(200).send('dummy response');
+    var matrix = req.body;
+
+    //create a copy of the matrix to rotate without affecting the original matrix
+    var newMatrix = matrix.map(function (arr) {
+        return arr.slice();
+    });
+
+    var rotatedMatrix = rotate(newMatrix);
+    var checkRows = rowWin(matrix);
+    var checkCols = rowWin(rotatedMatrix);
+    var checkMainDiag = diagWin(matrix);
+    var checkMinorDiag = diagWin(rotatedMatrix);
+    var winnerFound = checkRows || checkCols || checkMainDiag || checkMinorDiag;
+    res.status(200).send(winnerFound);
 })
 
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
 });
+
+
+var rowWin = function (matrix) {
+    var rowLength = matrix.length;
+    for (var x = 0; x < rowLength; x++) {
+        var counter = 0;
+        for (var y = 0; y < rowLength; y++) {
+            if (matrix[x][0] === matrix[x][y] && matrix[x][0] !== '') {
+                counter++;
+            }
+        }
+        if (counter === rowLength) {
+            return [true,matrix[x][0]];
+        } 
+    }
+    return false;
+}
+
+var rotate = function (matrix) {
+    matrix = matrix.reverse();
+    for (var i = 0; i < matrix.length; i++) {
+        for (var j = 0; j < i; j++) {
+            var temp = matrix[i][j];
+            matrix[i][j] = matrix[j][i];
+            matrix[j][i] = temp;
+        }
+    }
+    return matrix;
+};
+
+var diagWin = function (matrix) {
+    return false;
+}

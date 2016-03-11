@@ -24,7 +24,9 @@ $(document).ready(function () {
             data: JSON.stringify(boardState),
             contentType: 'application/json',
             success: function (data) {
-                console.log('success with return data of:', data);
+                if (data[0] === true) {
+                    alert(data[1] + ' has won!');
+                }
             },
             error: function (data) {
                 console.log('error with return data of:', data);
