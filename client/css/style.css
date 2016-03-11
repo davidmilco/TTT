@@ -38,3 +38,12 @@ body {
     margin-left: 0px;
     margin-right: 0px;
 }
+
+.letterInput {
+    margin-top:20%;
+    color: white;
+    text-align: center;
+    font-size: 3.5em;
+    vertical-align: middle;
+    justify-content:center;
+}
