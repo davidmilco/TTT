@@ -43,11 +43,25 @@ var rowWin = function (matrix) {
             }
         }
         if (counter === rowLength) {
-            return [true,matrix[x][0]];
-        } 
+            return [true, matrix[x][0]];
+        }
     }
     return false;
-}
+};
+
+var diagWin = function (matrix) {
+    var diagLength = matrix.length;
+    var counter = 0;
+    for (var a = 0; a < diagLength; a++) {
+        if (matrix[0][0] === matrix[a][a] && matrix[0][0] !== '') {
+            counter++;
+        }
+        if (counter === diagLength) {
+            return [true, matrix[0][0]];
+        }
+    }
+    return false;
+};
 
 var rotate = function (matrix) {
     matrix = matrix.reverse();
@@ -61,6 +75,3 @@ var rotate = function (matrix) {
     return matrix;
 };
 
-var diagWin = function (matrix) {
-    return false;
-}

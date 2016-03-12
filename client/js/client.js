@@ -4,20 +4,18 @@ $(document).ready(function () {
     $('.gameSquare').one('click', function (event) {
         turnCount++;
         if (turnCount % 2) {
-            $(this).children().text('X').addClass("letterInput").addClass('x');
+            $(this).children().text('X').addClass("letterInput");
             updateBoard();
             winConditions(boardState);
             
         } else {
-            $(this).children().text('O').addClass("letterInput").addClass('o');
+            $(this).children().text('O').addClass("letterInput");
             updateBoard();
             winConditions(boardState);
         }
     });
 
     var winConditions = function (boardState) {
-        console.log("win conditions function run");
-        console.log('Board State going in:', boardState);
         $.ajax({
             url: '/api/winConditions',
             type: 'POST',
@@ -26,6 +24,7 @@ $(document).ready(function () {
             success: function (data) {
                 if (data[0] === true) {
                     alert(data[1] + ' has won!');
+                    resetBoard();
                 }
             },
             error: function (data) {
@@ -44,5 +43,9 @@ $(document).ready(function () {
         boardState[2][0] = $('.twoZero').children().html();
         boardState[2][1] = $('.twoOne').children().html();
         boardState[2][2] = $('.twoTwo').children().html();      
+    }
+
+    var resetBoard = function () {
+        location.reload();
     }
 });
