@@ -6,8 +6,7 @@ $(document).ready(function () {
         if (turnCount % 2) {
             $(this).children().text('X').addClass("letterInput");
             updateBoard();
-            winConditions(boardState);
-            
+            winConditions(boardState);           
         } else {
             $(this).children().text('O').addClass("letterInput");
             updateBoard();
@@ -24,6 +23,9 @@ $(document).ready(function () {
             success: function (data) {
                 if (data[0] === true) {
                     alert(data[1] + ' has won!');
+                    resetBoard();
+                } else if (data === false && turnCount === 9) {
+                    alert('Cat Game!');
                     resetBoard();
                 }
             },
