@@ -8,3 +8,4 @@ $ cd TTT
 $ npm install (for server dependencies)
 $ node server/server.js (or nodemon)
 ```
+Navigate to localhost:3000
